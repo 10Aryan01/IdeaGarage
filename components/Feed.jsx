@@ -55,7 +55,7 @@ function Feed() {
   };
 
   return (
-    <>
+    <section className='feed'>
       <form className='relative w-full flex-center mt-10' >
         <input
           type='text'
@@ -65,12 +65,10 @@ function Feed() {
           className='search_input '
         />
       </form>
-    <section className='feed'>
       <PromptCardList
         data={filterpost ? filterpost : post}
       />
     </section>
-    </>
   )
 }
 
