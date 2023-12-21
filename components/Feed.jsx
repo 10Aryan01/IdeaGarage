@@ -12,14 +12,12 @@ function Feed() {
           <Promptcard
             key={post._id}
             post={post}
-          // handleTagClick={()=>handleTagClick && handleTagClick(post)}
           />
         ))
       ) : (
         <Promptcard
           key={data._id}
           post={data}
-        // handleTagClick={()=>handleTagClick && handleTagClick(data)}
         />
       )}
     </div>
@@ -41,6 +39,7 @@ function Feed() {
     fetchPost();
   }, []);
 
+  ///problem here
 
   const handleSeachChange = (e) => {
     const inputValue = e.target.value.toLowerCase();
