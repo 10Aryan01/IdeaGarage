@@ -17,11 +17,13 @@ export default function page() {
     const getpost = async () => {
       const response = await fetch(`/api/user/${session?.user.id}/posts`);
       const data = await response.json();
+      console.log("This is the data after parse",data)
       setPost(data)
+
     }
-
-    if (session?.user.id) getpost();
-
+    
+    // if (session?.user.id) getpost();
+    getpost();
   }, [])
 
 
@@ -46,8 +48,9 @@ export default function page() {
     }
   }
 
-  console.log(session?.user)
-  console.log(post)
+  console.log("This is the session user",session?.user)
+  console.log("This is the entire post",post)
+  console.log("This is the session object",session)
   return (
     <Profile
       name="My"
