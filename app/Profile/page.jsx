@@ -15,17 +15,20 @@ export default function page() {
 
   useEffect(() => {
     const getpost = async () => {
-      const response = await fetch(`/api/user/${session?.user.id}/posts`);
-      const data = await response.json();
-      console.log("This is the data after parse",data)
-      setPost(data)
-
+      try {
+        const response = await fetch(`/api/user/${session?.user.id}/posts`);
+        const data = await response.json();
+        setPost(data)
+      } catch (e) {
+        console.log("This error from get api ", e)
+      }
     }
-    
+
     // if (session?.user.id) getpost();
     getpost();
   }, [])
 
+  console.log("This is to test if sessio userid is there or not", session?.user.id)
 
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`)
@@ -48,9 +51,7 @@ export default function page() {
     }
   }
 
-  console.log("This is the session user",session?.user)
-  console.log("This is the entire post",post)
-  console.log("This is the session object",session)
+
   return (
     <Profile
       name="My"
