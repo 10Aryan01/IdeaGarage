@@ -16,7 +16,8 @@ const CreatePromptPage = () => {
     {
         e.preventDefault();
         setSubmitting(true)
-        try {
+        if(session?.user)
+        {try {
             const res= await fetch("/api/prompt/new",{
                 method:'POST',
                 body:JSON.stringify({
@@ -33,6 +34,10 @@ const CreatePromptPage = () => {
             console.log(e)
         }finally{
             setSubmitting(false);
+        }}
+        else
+        {
+            router.push("/");
         }
     }
     return( 

@@ -6,10 +6,12 @@ import Image from 'next/image'
 // import img from "./logo.svg"
 import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+import { useRouter } from 'next/navigation';
 function Navbar() {
     const { data: session } = useSession();
     const [providers, setProviders] = useState(null)
     const [toggledropdown, settoggledropdown] = useState(false)
+    const router = useRouter();
     useEffect(() => {
         const setProvider = async () => {
             const response = await getProviders();

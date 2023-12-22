@@ -23,9 +23,8 @@ export default function page() {
         console.log("This error from get api ", e)
       }
     }
-
-    // if (session?.user.id) getpost();
-    getpost();
+    if (session?.user.id) getpost();
+    // getpost();
   }, [])
 
   console.log("This is to test if sessio userid is there or not", session?.user.id)
