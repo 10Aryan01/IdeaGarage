@@ -47,6 +47,7 @@ export default function page() {
   }
 
   console.log(session?.user)
+  console.log(post)
   return (
     <Profile
       name="My"
